@@ -64,14 +64,14 @@ def create_agent_settings_tab(webui_manager: WebuiManager):
             llm_provider = gr.Dropdown(
                 choices=[provider for provider, model in config.model_names.items()],
                 label="LLM Provider",
-                value="openai",
+                value="azure_openai",
                 info="Select LLM provider for LLM",
                 interactive=True
             )
             llm_model_name = gr.Dropdown(
                 label="LLM Model Name",
                 choices=config.model_names['openai'],
-                value="gpt-4o",
+                value="gpt-4.1",
                 interactive=True,
                 allow_custom_value=True,
                 info="Select a model in the dropdown options or directly type a custom model name"
@@ -124,11 +124,12 @@ def create_agent_settings_tab(webui_manager: WebuiManager):
                 choices=[provider for provider, model in config.model_names.items()],
                 label="Planner LLM Provider",
                 info="Select LLM provider for LLM",
-                value=None,
+                value="azure_openai",
                 interactive=True
             )
             planner_llm_model_name = gr.Dropdown(
                 label="Planner LLM Model Name",
+                value="gpt-4.1",
                 interactive=True,
                 allow_custom_value=True,
                 info="Select a model in the dropdown options or directly type a custom model name"
